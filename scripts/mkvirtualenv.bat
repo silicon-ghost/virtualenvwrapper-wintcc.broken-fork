@@ -52,22 +52,22 @@ if errorlevel 2 goto END
 
 REM In activate.bat, keep track of PYTHONPATH.
 REM This should be a change adopted by virtualenv.
->>"%WORKON_HOME%\%ENVNAME%\Scripts\activate.bat" (
-    echo.:: In case user makes changes to PYTHONPATH
-    echo.if defined _OLD_VIRTUAL_PYTHONPATH (
-    echo.    set "PYTHONPATH=%%_OLD_VIRTUAL_PYTHONPATH%%"
-    echo.^) else (
-    echo.    set "_OLD_VIRTUAL_PYTHONPATH=%%PYTHONPATH%%"
-    echo.^)
+text >> "%WORKON_HOME%\%ENVNAME%\Scripts\activate.bat"
+:: In case user makes changes to PYTHONPATH
+if defined _OLD_VIRTUAL_PYTHONPATH (
+    set "PYTHONPATH=%_OLD_VIRTUAL_PYTHONPATH%"
+) else (
+    set "_OLD_VIRTUAL_PYTHONPATH=%PYTHONPATH%"
 )
+endtext
 
 REM In deactivate.bat, reset PYTHONPATH to its former value
->>"%WORKON_HOME%\%ENVNAME%\Scripts\deactivate.bat" (
-    echo.
-    echo.if defined _OLD_VIRTUAL_PYTHONPATH (
-    echo.    set "PYTHONPATH=%%_OLD_VIRTUAL_PYTHONPATH%%"
-    echo.^)
+text >> "%WORKON_HOME%\%ENVNAME%\Scripts\deactivate.bat" 
+
+if defined _OLD_VIRTUAL_PYTHONPATH (
+    set "PYTHONPATH=%_OLD_VIRTUAL_PYTHONPATH%"
 )
+endtext
 
 call "%WORKON_HOME%\%ENVNAME%\Scripts\activate.bat"
 goto END
