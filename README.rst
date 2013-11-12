@@ -77,7 +77,8 @@ Convenience Commands
     If a virtualenv environment is active and a projectdir has been defined,
     change the current working directory to active virtualenv's project directory.
     ``cd-`` will return you to the last directory you were in before calling 
-    ``cdproject``.
+    ``cdproject`` (Note that this is not exactly the same behavior as ``cd -`` 
+    in TCC).
 
 ``cdsitepackages``
     If a virtualenv environment is active, change the current working 
@@ -85,14 +86,16 @@ Convenience Commands
     a virtualenv environment is not active, change the current working 
     directory to the default Python's site-packages directory. ``cd-`` 
     will return you to the last directory you were in before calling 
-    ``cdsitepackages``.
+    ``cdsitepackages`` (Note that this is not exactly the same behavior as 
+    ``cd -`` in TCC).
 
 ``cdvirtualenv``
     If a virtualenv environment is active, change the current working 
     directory to the active virtualenv base directory. If a virtualenv 
     environment is not active, change the current working directory to 
     the base directory of the default Python. ``cd-`` will return you 
-    to the last directory you were in before calling ``cdvirtualenv``.
+    to the last directory you were in before calling ``cdvirtualenv``
+    (Note that this is not exactly the same behavior as ``cd -`` in TCC).
 
 ``lssitepackages``
     If a virtualenv environment is active, list that environment's 
@@ -118,7 +121,8 @@ Convenience Commands
     A script included for convenience. Returns directory locations 
     of `file` and `file` with any executable extensions. So you can call 
     ``whereis python`` to find all executables starting with ``python`` or 
-    ``whereis python.exe`` for an exact match.
+    ``whereis python.exe`` for an exact match.  This is similar to the
+    ``which <file>`` command in TCC.
     
 Software Credits
 ----------------
